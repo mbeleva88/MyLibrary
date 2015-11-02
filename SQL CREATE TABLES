@@ -1,0 +1,37 @@
+CREATE DATABASE library;
+
+USE library;
+
+
+CREATE TABLE AUTHORS (
+	author_id BIGINT UNSIGNED NOT NULL auto_increment,
+	name VARCHAR(50) NOT NULL,
+	country VARCHAR(50) NOT NULL,
+	PRIMARY KEY (author_id)
+);
+
+CREATE TABLE BOOKS (
+	book_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	author_id BIGINT UNSIGNED NOT NULL,
+	title VARCHAR(100) NOT NULL,
+	status VARCHAR(50) NOT NULL,
+	CONSTRAINT fk_author_books FOREIGN KEY (`author_id`)
+	REFERENCES `AUTHORS` (`author_id`)
+	ON DELETE CASCADE
+);
+
+CREATE TABLE COMMENTS (
+	comment_id BIGINT NOT NULL AUTO_INCREMENT,
+	book_id BIGINT UNSIGNED NOT NULL,
+	comment TEXT NOT NULL,
+	PRIMARY KEY (comment_id),
+	CONSTRAINT fk_book_comments FOREIGN KEY (book_id)
+	REFERENCES BOOKS (book_id)
+	ON DELETE CASCADE
+);
+
+
+
+
+
+
