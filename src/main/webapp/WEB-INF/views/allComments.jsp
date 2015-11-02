@@ -24,7 +24,7 @@
 						</c:when>
         		<c:otherwise>
         		<tr>
-            <td>Comment</td>
+            <th>Comment</th>
         	</tr>
 				<c:forEach items="${comments}" var="comment">
 				<tr>
@@ -44,6 +44,6 @@
     <br/>
     <a href="<c:url value='../${book_id}/comments/new' />">Add New Comment</a>
     <br /> Go back to
-	<a href="<c:url value='../${author_id}' />">Books</a>
+	<a href="<c:url value='/' />">Home</a>
 </body>
 </html>

@@ -4,7 +4,7 @@ import java.util.Set;
 
 import ss.java.course.model.Book;
 
-public interface BooksDao {
+public interface BookDao {
 
 	Book findById(Integer book_id);
 	

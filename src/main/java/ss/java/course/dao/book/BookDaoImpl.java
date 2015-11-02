@@ -13,7 +13,7 @@ import ss.java.course.model.Book;
 
 
 @Repository("bookDao")
-public class BookDaoImpl extends AbstractDao<Integer, Book> implements BooksDao {
+public class BookDaoImpl extends AbstractDao<Integer, Book> implements BookDao {
 
 	/*
 	 * Find book by book_id

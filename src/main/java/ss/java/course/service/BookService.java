@@ -4,7 +4,7 @@ import java.util.Set;
 
 import ss.java.course.model.Book;
 
-public interface BooksServices {
+public interface BookService {
 
 	Book findById(Integer book_id);
 	

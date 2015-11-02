@@ -17,7 +17,7 @@ import ss.java.course.model.Author;
 import ss.java.course.model.Book;
 import ss.java.course.model.Comment;
 import ss.java.course.service.AuthorService;
-import ss.java.course.service.BooksServices;
+import ss.java.course.service.BookService;
 import ss.java.course.service.CommentService;
 
 @Controller
@@ -28,7 +28,7 @@ public class CommentController {
 	AuthorService authorService;
 	
 	@Autowired
-	BooksServices booksService;
+	BookService booksService;
 	
 	@Autowired
 	CommentService commentService;

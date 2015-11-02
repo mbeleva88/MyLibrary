@@ -16,15 +16,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import ss.java.course.model.Author;
 import ss.java.course.model.Book;
 import ss.java.course.service.AuthorService;
-import ss.java.course.service.BooksServices;
+import ss.java.course.service.BookService;
 
 
 @Controller
 @RequestMapping(value = "/authors/{author_id}/")
-public class BooksController {
+public class BookController {
 
 	@Autowired
-	BooksServices booksService;
+	BookService bookService;
 
 	@Autowired
 	AuthorService authorService;
@@ -74,7 +74,7 @@ public class BooksController {
 		Author author = authorService.findById(author_id);
 		author.getBook().add(book);
 		book.setAuthor(author);
-		booksService.saveBook(book);
+		bookService.saveBook(book);
 		return "redirect:/authors/{author_id}/books";
 	}
 
@@ -83,7 +83,7 @@ public class BooksController {
 	 */
 	@RequestMapping(value = { "/books/{book_id}" }, method = RequestMethod.GET)
 	public String editBook(@PathVariable Integer book_id, ModelMap model) {
-		Book book = booksService.findById(book_id);
+		Book book = bookService.findById(book_id);
 		Author author = book.getAuthor();
 		model.addAttribute("book", book);
 		model.addAttribute("author", author);
@@ -103,11 +103,11 @@ public class BooksController {
 		}
 
 		Author author = authorService.findById(author_id);
-		Book dbBook = booksService.findById(book_id);
+		Book dbBook = bookService.findById(book_id);
 
 		dbBook = formBook;
 
-		booksService.updateBook(dbBook);
+		bookService.updateBook(dbBook);
 		author.getBook().add(dbBook);
 		return "redirect:/authors/{author_id}/books";
 	}
@@ -117,11 +117,11 @@ public class BooksController {
 	 */
 	@RequestMapping(value = { "/books/{book_id}" }, method = RequestMethod.DELETE)
 	public String deleteBook(@PathVariable Integer author_id, @PathVariable Integer book_id) {
-		Book book = booksService.findById(book_id);
+		Book book = bookService.findById(book_id);
 		Author author = authorService.findById(author_id);
 
 		author.getBook().remove(book);
-		booksService.deleteBooks(book);
+		bookService.deleteBooks(book);
 		return "redirect:/authors/{author_id}/books/";
 	}
 }

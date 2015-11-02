@@ -7,16 +7,16 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ss.java.course.dao.book.BooksDao;
+import ss.java.course.dao.book.BookDao;
 import ss.java.course.model.Book;
 
 
 @Service("booksService")
 @Transactional
-public class BooksServiceImpl implements BooksServices {
+public class BookServiceImpl implements BookService {
 
 	@Autowired
-	private BooksDao dao;
+	private BookDao dao;
 
 	/*
 	 * Find book by book_id

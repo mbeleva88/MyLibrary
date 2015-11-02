@@ -25,7 +25,7 @@
 		</tr>
 		
 		<c:forEach items="${books}" var="book">
-			<tr>
+		 <tr>
 				<td>${book.title}</td>
 				<td>${book.status}</td>
 				<td>
@@ -49,8 +49,8 @@
 					</form:form></td></tr>
 					</c:forEach>
 					</c:otherwise>
-					</c:choose></td>	
-            </tr>				
+					</c:choose>
+						</tr> 	
 	</table>
 	<br />
 	<a href="<c:url value='/authors/${author_id}/books/new' />">Add New Book</a>
